@@ -4,7 +4,7 @@ default collate utf8_general_ci;
 
 use cadastro;
 
-create table pessoas(
+create table if not exists pessoas(
 id int not null auto_increment,
 nome varchar(30) not null,
 nascimento date,
@@ -24,3 +24,19 @@ select * from pessoas;
 
 truncate pessoas; /* apaga tofos os dados da tabela sem alterar sua estrutura*/
 
+desc pessoas;
+
+alter table pessoas
+add column profissao varchar(30) after nome;
+
+alter table pessoas
+modify column profissao varchar(30) not null default '';
+
+alter table pessoas
+drop column profissao;
+
+alter table pessoas 
+change column profissao prof varchar(20) not null default ''; /* muda o nome da coluna*/
+
+alter table pessoas
+rename to gafanhotos;
