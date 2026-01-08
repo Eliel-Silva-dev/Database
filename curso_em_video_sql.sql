@@ -41,9 +41,9 @@ change column profissao prof varchar(20) not null default ''; /* muda o nome da 
 alter table pessoas
 rename to gafanhotos;
 
-/*--------------------------------------------------------------------------------------------*/
+/*--------------------------------------.------------------------------------------------------*/
 /*create table cursos*/
-
+                                                                                                                                                                                
 create table if not exists cursos (
 nome varchar(30) not null unique, 
 descricao text,
@@ -58,6 +58,27 @@ add column idcurso int first;
 alter table cursos
 add primary key(idcurso);
 
+insert into cursos values 
+('1','HTLM4','Curso de HTML5','40','37','2014'),
+('2','Algoritimos','Lógica de programação','20','15','2014'),
+('3','photoshopo','Dicas de photoshop','10','8','2014'),
+('4','PGP','Curso de PHP para iniciantes','40','20','2010'),
+('5','Jarva','Introdução a linguagem Java','10','29','2000'),
+('6','MySQL','Bancos de dados MySql','30','15','2016'),
+('7','Word','Curso completo de word','40','30','2018'),
+('8','Sapateado','danças ritmicas','40','30','2018'),
+('9','Cozinha arabe','Aprenda a fazer kibe','40','30','2018'),
+('10','YouTuber','Gerar polemica e ganhar inscrito','5','2','2018');
+
+update cursos set nome = 'HTML5' where idcurso = 1;
+update cursos set nome = 'PHP', ano = '2015' where idcurso = 4;
+update cursos set nome = 'Java', ano = '2015', carga = '40' where idcurso = 5 limit 1;
+
+delete from cursos where idcurso = '8';
+delete from cursos where ano = '2018';
+
 desc cursos;
 
 select * from cursos;
+
+truncate table cursos;
